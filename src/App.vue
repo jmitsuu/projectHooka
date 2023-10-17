@@ -30,7 +30,7 @@ const modal = ref(false)
         <Transition>
 
     
-        <div v-if="modal" class=" flex flex-col h-screen w-44 z-50 right-0 bg-black opacity-80   gap-8 border-b-2  text-white text-[1.8rem] p-3 absolute">
+        <div v-if="modal" class=" flex flex-col h-screen w-44 z-50 right-0 fixed bg-black opacity-80 top-0  gap-8 border-b-2  text-white text-[1.8rem] p-3 ">
           <XMarkIcon @click="modal = false" class="h-10  cursor-pointer text-white font-bold" />
         <RouterLink @click="modal=false" to="/">Essências</RouterLink>
         <RouterLink @click="modal=false" to="/aluminio">Aluminio</RouterLink>
