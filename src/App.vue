@@ -26,10 +26,10 @@ const modal = ref(false)
          
 
           <div class="md:flex gap-11 hidden text-white">
-            <RouterLink to="/">Home</RouterLink>
-            <RouterLink to="/essencia">Essências</RouterLink>
-            <RouterLink to="/aluminio">Aluminio</RouterLink>
-            <RouterLink to="/carvao">Carvão</RouterLink>
+            <RouterLink to="/" class="link">Home</RouterLink>
+            <RouterLink to="/essencia" class="link">Essências</RouterLink>
+            <RouterLink to="/aluminio" class="link">Aluminio</RouterLink>
+            <RouterLink to="/carvao" class="link">Carvão</RouterLink>
           </div>
 
           <div class="p-3 absolute right-0 rounded-md flex justify-center items-center">
@@ -117,5 +117,14 @@ const modal = ref(false)
 .v-enter-from,
 .v-leave-to {
   opacity: 0;
+}
+.link {
+  margin: 10px;
+}
+.link.active {
+  border-bottom: 2px solid white;
+  opacity: 50%;
+  transition-duration: 0.8s;
+  color: white;
 }
 </style>
