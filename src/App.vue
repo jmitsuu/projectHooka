@@ -20,10 +20,11 @@ const modal = ref(false)
     >
       Item Adicionado ao carrinho <FaceSmileIcon class="h-6 text-yellow-100" />
     </div>
-    <CartView/>
+   
 
     <div class="w-full 0 relative bg-gradient-to-b via-90%">
-      <header class="relative bg-black h-24 flex justify-center">
+       <CartView/>
+      <header class="fixed w-full z-50 bg-black h-24 flex justify-center">
         <nav class="flex items-center gap-11">
           <RouterLink to="/" class="absolute left-2">
             <img src="../src/assets/logo.jpeg" class="h-20 w-20 cursor-pointer rounded-md" />
@@ -67,7 +68,7 @@ const modal = ref(false)
         </div>
       </header>
 
-      <div class="mt-20 border-2">
+      <div class="mt-44 border-2">
         <RouterView />
         <a
           class="fixed bottom-3 right-5"
