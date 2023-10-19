@@ -1,29 +1,33 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import { Bars3Icon, XMarkIcon, MagnifyingGlassIcon } from '@heroicons/vue/24/solid'
+import { Bars3Icon, XMarkIcon, ShoppingCartIcon, FaceSmileIcon } from '@heroicons/vue/24/solid'
+import CartView from './components/CartView.vue'
 import { ref } from 'vue'
-import { useSearchStore } from '../src/stores/search'
+import { useCartStore } from '../src/stores/storeCart'
+const store = useCartStore()
 
-const store = useSearchStore()
 const modal = ref(false)
+
 //imgbb
 </script>
 
 <template>
-  <section class="flex">
+  <section class="flex relative">
     <!-- <div class=" relative min-h-screen w-24 bg-slate-800 hidden md:block "></div> -->
+    <div
+      v-if="store.popUp"
+      class="fixed right-4 top-8 rounded-xl z-50 p-3 bg-amber-300 text-[1.1rem] items-center flex"
+    >
+      Item Adicionado ao carrinho <FaceSmileIcon class="h-6 text-yellow-100" />
+    </div>
+    <CartView/>
 
-    <div class=" w-full 0 relative bg-gradient-to-b via-90%">
-      <header class="relative bg-black h-24 flex justify-center ">
+    <div class="w-full 0 relative bg-gradient-to-b via-90%">
+      <header class="relative bg-black h-24 flex justify-center">
         <nav class="flex items-center gap-11">
           <RouterLink to="/" class="absolute left-2">
-            <img
-            
-            src="../src/assets/logo.jpeg"
-            class="h-20 w-20 cursor-pointer  rounded-md"
-          />
+            <img src="../src/assets/logo.jpeg" class="h-20 w-20 cursor-pointer rounded-md" />
           </RouterLink>
-         
 
           <div class="md:flex gap-11 hidden text-white">
             <RouterLink to="/" class="link">Home</RouterLink>
@@ -33,6 +37,11 @@ const modal = ref(false)
           </div>
 
           <div class="p-3 absolute right-0 rounded-md flex justify-center items-center">
+            <div class="mr-4 flex">
+              <ShoppingCartIcon class="h-10 text-green-800 cursor-pointer" @click="store.cartLength >= 1? store.modalCart =true : store.modalCart = false"/>
+              <span class="text-gray-200 text-xs">{{ store.cartLength }}</span>
+            </div>
+
             <h1 class="text-gray-200 font-bold text-[1.8rem] hidden md:block">Hookah MK</h1>
             <Bars3Icon
               @click="modal = !modal"
@@ -54,10 +63,7 @@ const modal = ref(false)
           </div>
         </Transition>
         <div class="absolute top-28">
-          <!-- <div class="relative">
-            <input type="search" v-model="store.search" placeholder="Procurar..." class="p-2 bg-slate-100 md:w-full w-40 rounded-md" />
-          <MagnifyingGlassIcon class="text-black h-8 absolute top-1 right-2" />
-          </div> -->
+      
         </div>
       </header>
 
@@ -101,9 +107,7 @@ const modal = ref(false)
           </svg>
         </a>
       </div>
-      <footer class="bg-black h-20 w-full ">
-
-      </footer>
+      <footer class="bg-black h-20 w-full"></footer>
     </div>
   </section>
 </template>
