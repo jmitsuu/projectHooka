@@ -16,7 +16,7 @@ const modal = ref(false)
     <!-- <div class=" relative min-h-screen w-24 bg-slate-800 hidden md:block "></div> -->
     <div
       v-if="store.popUp"
-      class="fixed right-4 top-8 rounded-xl z-50 p-3 bg-amber-300 text-[1.1rem] items-center flex"
+      class="fixed right-4 top-40 rounded-xl z-50 p-3 bg-amber-300 text-[1.1rem] items-center flex"
     >
       Item Adicionado ao carrinho <FaceSmileIcon class="h-6 text-yellow-100" />
     </div>

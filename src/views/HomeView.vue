@@ -2,8 +2,10 @@
 import { dataEssencia, dataAluminio, dataCarvoes } from '../composables'
 import { MagnifyingGlassIcon } from '@heroicons/vue/24/solid'
 import { ref, onMounted, computed } from 'vue'
-import { useSearchStore } from '../stores/search'
+import { useSearchStore } from '../stores/search';
+import { useCartStore } from "../stores/storeCart";
 import ProdutosView from '../components/ProdutosView.vue'
+const storeCart = useCartStore()
 const store = useSearchStore()
 const dataItems = ref()
 const reloadData = ref()
@@ -48,7 +50,7 @@ onMounted(() => {
        :img="item.img"
        :price="item.price"
        :items="item"
-       
+      
        />
       </ul>
     </div>
