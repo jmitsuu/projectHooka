@@ -26,7 +26,7 @@ export const useCartStore = defineStore('useCartStore', () => {
     total.value.push(Math.floor(item.price * qtd))
     allPrices.value = total.value.reduce((acc, val) => acc  + val ) 
     qtdCart.value.push({title:item.title, qt:qtd})
-   
+   console.log(qtd)
     sendMessage(item, qtd)
   }
 

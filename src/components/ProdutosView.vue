@@ -3,7 +3,7 @@ import { useCartStore } from "../stores/storeCart";
 import { ShoppingCartIcon } from '@heroicons/vue/24/solid';
 import { ref, onMounted } from "vue"
 const store = useCartStore()
-const qtd = 1
+let qtd = 1
 const qtdPush = ref()
 defineProps({
   title: String,
